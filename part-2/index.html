@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>VueJs</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+    <div class="content" id="app">
+        <input type="text" placeholder="new item" v-model="item">
+        <button @click="addNewItem">Add new Item</button>
+        <div class="alert" v-if="myAlert" @click="myAlert=false">Please input your data.</div>
+        <br><button @click="asc">ASC</button > 
+        <button @click="dsc">DSC</button>
+
+        <ul>
+            <li v-for='(skill, index) in skills'>{{ skill }} <button @click='removeItem(index)'>Remove</button> </li>
+        </ul>
+    
+    </div>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.22.0/axios.min.js"></script>
+
+<script type="text/javascript" src="js/vue.js"></script>
+<script type="text/javascript">
+    let test = new Vue({
+        el:"#app",
+        data:{
+            item:null, 
+            posts:{},
+            myAlert: false,
+            skills:[ 'html', 'css','jquery', 'php']
+        },
+        methods:{
+            addNewItem: function(){
+                if (this.item != null) {
+                    this.skills.push(this.item);
+                    this.item= null;
+                }else{
+                    this.myAlert = true;
+                }
+            },
+            removeItem: function(index){
+                this.skills.splice(index, 1);
+            },
+            asc: function(){
+                this.skills.sort();
+            },
+            dsc: function(){
+                this.skills.reverse();
+            },
+            getPosts: function(){
+                let demo = this;
+                axios.get("https://jsonplaceholder.typicode.com/posts")
+                .then(function(response){
+                    demo.posts = response.data;
+                });
+            },
+            mounted:function(){
+                this.getPosts();
+            }
+        }
+    });
+</script>
+</body>
+</html>      

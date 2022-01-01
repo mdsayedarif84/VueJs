@@ -1,0 +1,10 @@
+.main_image{
+    height: 350px;
+    width: 450px;
+    border: 1px solid red;
+}
+.sub_image{
+    height: 50px;
+    width: 86px;
+    border: 1px solid gray;
+}

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>VueJs</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+    <div class="content" id="app">
+        <input type="text" v-model="name">
+        <button v-on:click="addNewItem">Add new Item</button>
+
+        <ul>
+            <li v-for='user in users' v-if="user.age>=22">Name:  {{ user.name }} Age: {{ user.age }} </li>
+        </ul>
+    </div>
+<script type="text/javascript" src="js/vue.js"></script>
+<script type="text/javascript">
+    let test = new Vue({
+        el:"#app",
+        data:{
+            item:null, 
+            users:[
+                {name: "Rahim", age:20},
+                {name: "Karim", age:21},
+                {name: "Hasan", age:22},
+                {name: "Pabel", age:23},
+                {name: "Antu", age:24},
+            ],
+        methods:{
+            addNewItem = function(){
+                console.log("test");
+            }
+        },
+    });
+</script>
+</body>
+</html>      
