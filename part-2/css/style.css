@@ -1,3 +1,9 @@
-li{
-	list-style: none;
+
+.alert {
+    background: red;
+    color: #fff;
+    padding: 10px;
+    max-width: 300px;
+    border-radius: 4px;
+    margin: 10px auto;
 }

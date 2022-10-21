@@ -3,13 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <title>VueJs</title>
-    <link rel="stylesheet" type="text/css" href="css/style.css">
+<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <div class="content" id="app">
         <input type="text" placeholder="new item" v-model="item">
         <button @click="addNewItem">Add new Item</button>
-        <div class="alert" v-if="myAlert" @click="myAlert=false">Please input your data.</div>
+        <div class="alert" v-if="myAlert" @click="myAlert=false"
+        style="
+            background: red;
+            color: #fff;
+            padding: 10px;
+            max-width: 300px;
+            border-radius: 4px;
+            margin: 10px auto;
+
+        "
+        >Please input your data.</div>
         <br><button @click="asc">ASC</button > 
         <button @click="dsc">DSC</button>
 
